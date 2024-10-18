@@ -1,0 +1,41 @@
+Partiamo dalle motivazioni che hanno spinto a redigere questo lavoro, ovvero provare ad
+ottenere maggiori informazioni in ambito scientifico nel campo delle emozioni umane. 
+Siamo partiti da un dataset, denominato manhob hci: in pratica, sul corpo di 27 utenti 
+sono stati predisposti vari elettrodi , dopodichè gli utenti sono stati sottoposti alla 
+visione di 
+determinati contenuti audio/visivi e, all'interno del dataset, sono stati registrati i 
+valori delle onde celebrali misurati durante la visione. Ad ogni misurazione, poi, sono 
+state associate dall'utente delle etichette, riguardanti i valori percepiti dell'intensità
+ delle emozioni provate. Infatti, in campo scientifico le emozioni sono valutate tramite 
+alcune etichette come "valenza", "predicibilità", " intensità", e non con gli aggettivi a 
+cui siamo abituati di "felicità ", "tristezza", ecc, per superare scogli linguistici di 
+comprensione.
+Attraverso la piattaforma di google colab, che permette di utilizzare cpu molto performanti
+, e librerie low code di pyhton, sono stati implementati metodi di machine learning per 
+riuscire a prevedere le etichette del dataset. Ciò è atto a poter prevedere, poi, le 
+etichette relative alle emozioni a partire dalle sole misurazioni delle onde celebrali. 
+In particolare, è stata implementata una classificazione attraverso alberi decisionali, il 
+cui modello è risultato il più performante sul dataset in questione. 
+Successivamente, per provare a rimuovere interferenze spaziali (riguardanti due elettrodi 
+vicini nello spazio) o frequenziali (cioè vicini in frequenza), è stata effettuata 
+un'analisi delle componenti principali, cioè una rimodellizzazione del dataset, che
+preservi soltanto informazioni non ridondanti.
+Infine, è stata effettuata l'analisi delle feature importance, ovvero delle caratteristiche
+che il modello ha ritenuto essere le più importanti e che maggiormente hanno contribuito 
+al suo addestramento. Questa, oltre ad esser stata fatta sul dataset e sul dataset con pca, 
+è stata poi stilata una classifica a seconda di quanto ogni singolo elettrodo abbia influito
+sul modello finale. La formula per stilare la classifica è quella mostrata.
+Visioniamo adesso i risultati sperimentali: la classificazione ha risposto positivamente,
+ nel caso del modello Extra Tree con un'accuratezza del 91%, rispetto a prove precedenti 
+col normale decision tree, le quali avevano registrato accuratezze minori.
+Usando la riduzione di dimensionalità, l'accuratezza rimane dello stesso ordine di
+ grandezza, 89%, dunque le informazioni ridondanti non sono risultate significative per le 
+predizioni
+Per quanto riguarda le classifiche a seconda delle feature importance, vediamo a
+ confronto quella relativa al dataset con pca e quella relativa al dataset senza pca,
+ quest ultima ottenuta tramite l'applicazione del calcolo dell importanza di canale. 
+Notiamo che sono concordi su quali siano gli attributi più importanti da considerare
+Concludiamo dicendo che possiamo ritenerci soddisfatti, sia sulle accuratezze ottenute
+ nelle classificazioni, sia per quanto riguarda la conferma avuta su quali siano le feature
+ importance, visto che il modello ha risposto in maniera molto simile anche successivamente
+ alle trasformazioni effettuate.
